@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Урок 2. Задание 4.</title>
+</head>
+<body>
+	<script>
+		"use strict";
+
+		/* 
+		Реализовать основные 4 арифметические операции (+, -, /, *) в виде функций с двумя параметрами. 
+		Т.е. например, функция для сложения должна принимать два числа, складывать их и возвращать результат.
+		Обязательно использовать оператор return. 
+		*/	
+			
+		// Сложение
+		function getSum(operand1, operand2){
+			if (isNaN(operand1) || isNaN(operand2)){
+				throw new Error("Аргументы должны быть числовыми");
+			}
+			return operand1 + operand2
+		}
+
+		// Вычитание
+		function getDifference(operand1, operand2){
+			if (isNaN(operand1) || isNaN(operand2)){
+				throw new Error("Аргументы должны быть числовыми");
+			}
+			return operand1 - operand2
+		}
+
+		// Умножение
+		function getProduct(operand1, operand2){
+			if (isNaN(operand1) || isNaN(operand2)){
+				throw new Error("Аргументы должны быть числовыми");
+			}
+			return operand1 * operand2
+		}
+
+		// Деление
+		function getFactor(operand1, operand2){		
+			if (isNaN(operand1) || isNaN(operand2)){
+				throw new Error("Аргументы должны быть числовыми");
+			}
+			if (operand2 == 0){
+				throw new Error("Нельзя делить на 0");
+			}
+			return operand1 / operand2
+		}
+
+		// Тест 
+		let a = 10;
+		let b = 5;
+
+		console.log(`Сумма чисел ${a} и ${b} равна ${getSum(a, b)}`);
+		console.log(`Разность чисел ${a} и ${b} равна ${getDifference(a, b)}`);
+		console.log(`Произведение чисел ${a} и ${b} равно ${getProduct(a, b)}`);
+		console.log(`Результат деления чисел ${a} и ${b} равен ${getFactor(a, b)}`);
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>		
+		<title>Урок 2. Задание 5.</title>		
+	</head>
+	<body>		
+		
+		<script>
+
+			// Сложение
+			function getSum(operand1, operand2){
+				if (isNaN(operand1) || isNaN(operand2)){
+					throw new Error("Аргументы должны быть числовыми");
+				}
+				return operand1 + operand2
+			}
+
+			// Вычитание
+			function getDifference(operand1, operand2){
+				if (isNaN(operand1) || isNaN(operand2)){
+					throw new Error("Аргументы должны быть числовыми");
+				}
+				return operand1 - operand2
+			}
+
+			// Умножение
+			function getProduct(operand1, operand2){
+				if (isNaN(operand1) || isNaN(operand2)){
+					throw new Error("Аргументы должны быть числовыми");
+				}
+				return operand1 * operand2
+			}
+
+			// Деление
+			function getFactor(operand1, operand2){		
+				if (isNaN(operand1) || isNaN(operand2)){
+					throw new Error("Аргументы должны быть числовыми");
+				}
+				if (operand2 == 0){
+					throw new Error("Нельзя делить на 0");
+				}
+				return operand1 / operand2
+			}
+
+
+
+			/* 			
+				Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation),
+				где arg1, arg2 – значения аргументов, operation – строка с названием операции. 
+				В зависимости от переданного значения операции (использовать switch) выполнить одну из арифметических операций
+				(использовать функции из задания 4) и вернуть полученное значение.
+					
+			*/			
+			
+			function mathOperation(arg1, arg2, operation) {
+				switch (operation) {
+					case "+": return getSum(arg1, arg2)
+					case "-": return getDifference(arg1, arg2)
+					case "*": return getProduct(arg1, arg2)
+					case "/": return getFactor(arg1, arg2)
+					default: throw new Error(`Неизвестная операция: ${operation}`)
+				}
+			}
+
+			// Тест
+
+			let a = 10;
+			let b = 5;
+
+			console.log(`Сумма чисел ${a} и ${b} равна ${mathOperation(a, b, "+")}`);
+			console.log(`Разность чисел ${a} и ${b} равна ${mathOperation(a, b, "-")}`);
+			console.log(`Произведение чисел ${a} и ${b} равно ${mathOperation(a, b, "*")}`);
+			console.log(`Результат деления чисел ${a} и ${b} равен ${mathOperation(a, b, "/")}`);
+			console.log(`Результат ? чисел ${a} и ${b} равен ${mathOperation(a, b, "?")}`);
+
+
+		</script>
+	</body>
+</html>
