@@ -18,6 +18,7 @@
 
 		let amount = Number(prompt("Введите сумму пополнения счёта в рублях"));
 		
+		// Делаем проверки введённой суммы
 		if (isNaN(amount) || amount <= 0)
 		{
 			alert("Вы должны ввести корректное числовое значение суммы");
@@ -26,15 +27,27 @@
 
 		let currencySpelling;
 		
-		// Определяем последние две цифры
-		let remainder = amount - 100 * parseInt(amount / 100);		
+		// Округляем сумму до двух знаков после запятой
+		amount = amount.toFixed(2);		
+
+		// Выделяем копейки из суммы 
+		let amountStr = amount.toString();
+		let decimalPart = amountStr.indexOf(".") > 0 ? amountStr.split(".")[1] : "";
+		let decimalPartSpelling = decimalPart.length > 0 && decimalPart != "00"  ? ` ${decimalPart} коп.`: "";
+
+		// Для определения валюты прописью работаем только с целой частью суммы
+		let amountInt = parseInt(amount);
+
+		// Определяем последние две цифры целой части суммы
+		let remainder = amountInt - 100 * parseInt(amountInt / 100);				
 		
-		// рубли для чисел, заканчивающихся на 11..14 произносятся не так, как числа заканчивающиеся на 1..4)
-		if (remainder >= 11 && remainder <= 14) {			
+		if (remainder >= 11 && remainder <= 14)  // рубли для чисел, заканчивающихся на 11..14 произносятся не так, как числа заканчивающиеся на 1..4)			
+		{
 			currencySpelling = "рублей";
 		} else {
-			// Определяем последнюю цифру
-		     remainder = amount - 10 * parseInt(amount / 10);	
+			// Определяем последнюю цифру целой части суммы
+		     remainder = amountInt - 10 * parseInt(amountInt / 10);	
+			 
 			 switch (remainder)	{
 				 case 1: currencySpelling = "рубль"; break;
 				 case 2: case 3: case 4: currencySpelling = "рубля"; break;
@@ -42,7 +55,7 @@
 			 }
 		}
 
-		alert(`Ваша сумма в ${amount} ${currencySpelling} успешно зачислена.`);
+		alert(`Ваша сумма в ${amountInt} ${currencySpelling}${decimalPartSpelling} успешно зачислена.`);
 		
 	</script>
 	</body>
