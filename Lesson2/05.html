@@ -1,47 +1,44 @@
 <!DOCTYPE html>
 <html>
-	<head>		
-		<title>Урок 2. Задание 5.</title>		
+	<head>
+		<title>Урок 2. Задание 5.</title>
 	</head>
-	<body>		
-		
+	<body>
+
 		<script>
 
-			// Сложение
-			function getSum(operand1, operand2){
+			function CheckArguments(operand1, operand2){
 				if (isNaN(operand1) || isNaN(operand2)){
 					throw new Error("Аргументы должны быть числовыми");
 				}
+			}
+				
+			// Сложение
+			function getSum(operand1, operand2){
+				CheckArguments(operand1, operand2);
 				return operand1 + operand2
 			}
 
 			// Вычитание
 			function getDifference(operand1, operand2){
-				if (isNaN(operand1) || isNaN(operand2)){
-					throw new Error("Аргументы должны быть числовыми");
-				}
+				CheckArguments(operand1, operand2);
 				return operand1 - operand2
 			}
 
 			// Умножение
 			function getProduct(operand1, operand2){
-				if (isNaN(operand1) || isNaN(operand2)){
-					throw new Error("Аргументы должны быть числовыми");
-				}
+				CheckArguments(operand1, operand2);
 				return operand1 * operand2
 			}
 
 			// Деление
 			function getFactor(operand1, operand2){		
-				if (isNaN(operand1) || isNaN(operand2)){
-					throw new Error("Аргументы должны быть числовыми");
-				}
+				CheckArguments(operand1, operand2);
 				if (operand2 == 0){
 					throw new Error("Нельзя делить на 0");
 				}
 				return operand1 / operand2
 			}
-
 
 
 			/* 			
