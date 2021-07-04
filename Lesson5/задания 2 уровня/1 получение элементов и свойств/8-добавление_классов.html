@@ -23,10 +23,11 @@
         'use strict';
 
         let elements = document.querySelectorAll("b");
+        let classToAdd = "sign";
         
         elements.forEach(function (element) {
-            if (!element.classList.contains("sign")) {
-                element.classList.add("sign");
+            if (!element.classList.contains(classToAdd)) {
+                element.classList.add(classToAdd);
             }
         });      
         

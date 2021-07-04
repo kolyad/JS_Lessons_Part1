@@ -20,10 +20,11 @@
         'use strict';
 
         let elements = document.querySelectorAll("a");
-        
+        let elementText = "ссылка";
+
         elements.forEach(function (element) {
-            if (element.textContent !== "ссылка") {
-                element.textContent = "ссылка";
+            if (element.textContent !== elementText) {
+                element.textContent = elementText;
             }
         });    
         
